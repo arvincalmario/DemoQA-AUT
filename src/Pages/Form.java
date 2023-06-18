@@ -9,6 +9,7 @@ public class Form {
 	
 	public void formfill(WebDriver driver) throws InterruptedException {
 		
+		System.out.println("Fill out form starts");
 		//FIRST / LAST /EMAIL
 		driver.findElement(By.id("firstName")).sendKeys("ArvinTest");
 		driver.findElement(By.id("lastName")).sendKeys("TestData");
@@ -75,13 +76,15 @@ public class Form {
 		((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", hobby3);
 		Thread.sleep(500);	
 		
-		
+		//UPLOAD
 		driver.findElement(By.cssSelector("input#uploadPicture")).sendKeys("C:\\Users\\Arvin Almario\\eclipse-workspace\\DemoQA AUT\\file\\dog.jpg");
 		Thread.sleep(500);
 		
+		//ADDRESS
 		driver.findElement(By.id("currentAddress")).sendKeys("This is a test data for automation purposes");
 		Thread.sleep(500);
-				
+		
+		//STATE AND CITY
 		driver.findElement(By.xpath("//*[@id=\"state\"]/div/div[1]/div[1]")).click();
 		Thread.sleep(500);
 		driver.findElement(By.xpath("//*[@id=\"react-select-3-option-0\"]")).click();
@@ -89,12 +92,16 @@ public class Form {
 		driver.findElement(By.xpath("//*[@id=\"city\"]/div/div[1]/div[1]")).click();
 		Thread.sleep(500);
 		driver.findElement(By.xpath("//*[@id=\"react-select-4-option-0\"]")).click();
-		Thread.sleep(500);
-		driver.findElement(By.xpath("//*[@id=\"submit\"]")).click();
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		
-		WebElement closeModal = driver.findElement(By.cssSelector("button#closeLargeModal"));
-		closeModal.click();
+		System.out.println("Form complete");
+		
+		//BUG IN THE SUBMIT BUTTON AND NOT USERFRIENDLY
+//		driver.findElement(By.xpath("//*[@id=\"userForm\"]/div[11]/div")).click();
+//		Thread.sleep(500);
+//		
+//		WebElement closeModal = driver.findElement(By.cssSelector("button#closeLargeModal"));
+//		closeModal.click();
 		
 		Thread.sleep(500);
 	}
